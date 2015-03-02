@@ -1,0 +1,33 @@
+//
+//  快递大师-Prefix.pch
+//  快递大师
+//
+//  Created by amber on 15/3/1.
+//  Copyright (c) 2015年 amber. All rights reserved.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <QuartzCore/QuartzCore.h>
+
+
+#endif
+
+#import "UIViewExt.h"
+#import "CONSTS.h"
+#import "UIDevice+Resolutions.h"   //屏幕分辨率的类
+#import "BaseNavigationController.h"
+
+#define ScreenHeight  [UIScreen mainScreen].bounds.size.height //获取当前设备的高度
+#define ScreenWidth  [UIScreen mainScreen].bounds.size.width  //获取当前设备的宽度
+#define kDeviceHeight [UIScreen mainScreen].bounds.size.height
+
+#define kNavigationController (BaseNavigationController *)[[[UIApplication sharedApplication].windows objectAtIndex:0]rootViewController]
+
