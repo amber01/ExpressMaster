@@ -8,6 +8,14 @@
 
 #import "BaseViewController.h"
 
-@interface CallViewController : BaseViewController
+@interface CallViewController : BaseViewController<UITableViewDataSource,UITableViewDelegate>
+{
+    UITableView      *_tableView;
+    UIWebView        *phoneCallWebView;
+}
+
+@property (nonatomic,retain)NSArray *data;
+@property (nonatomic,retain)NSDictionary *dataDac;
+@property (nonatomic,copy)  NSString  *keys;
 
 @end

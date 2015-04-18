@@ -7,9 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchViewController.h"
+#import "CallViewController.h"
+#import "HistoryViewController.h"
 
 @interface MainViewController : UITabBarController<UINavigationControllerDelegate>
-
+{
+    SearchViewController   *searchVC;
+    CallViewController     *callVC;
+    HistoryViewController  *historyVC;
+}
 
 @end
 

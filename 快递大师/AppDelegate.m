@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "MainViewController.h"
 #import "BaseNavigationController.h"
+#import "MobClick.h"
 
 @interface AppDelegate ()
 
@@ -21,12 +22,25 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    MainViewController *mainVC = [[MainViewController alloc]init];
-    BaseNavigationController *rootNavigationController = [[BaseNavigationController alloc]initWithRootViewController:mainVC];
-    self.window.rootViewController = rootNavigationController;
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent]; //将导航栏文字改为白色
-    [self.window makeKeyAndVisible];
-
+    //启动图片延时2s
+    //[UIView setAnimationDuration:3.0];
+    [NSThread sleepForTimeInterval:2.0];
+    
+    //YouMeng统计平台
+    [MobClick startWithAppkey:@"550977fffd98c54dd400112f" reportPolicy:(ReportPolicy) REALTIME channelId:nil];
+    
+    
+    //if ([version isEqualToString:saveVersion]) { // 不是第一次使用这个版本
+        MainViewController *mainVC = [[MainViewController alloc]init];
+        BaseNavigationController *rootNavigationController = [[BaseNavigationController alloc]initWithRootViewController:mainVC];
+        self.window.rootViewController = rootNavigationController;
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent]; //将导航栏文字改为白色
+        [self.window makeKeyAndVisible];
+        
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentsDirectory = [paths objectAtIndex:0];
+        NSLog(@"path:%@",documentsDirectory);
+        NSLog(@"不是第一次登陆");
     return YES;
 }
 
@@ -56,6 +70,13 @@
 - (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
     return UIInterfaceOrientationMaskPortrait;
+}
+
+#pragma mark other
+- (void)closeAction
+{
+    [view removeFromSuperview];
+    NSLog(@"close");
 }
 
 @end

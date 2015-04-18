@@ -7,7 +7,22 @@
 //
 
 #import "BaseViewController.h"
+#import "NetworkModel.h"
+#import "MBProgressHUD.h"
 
-@interface HistoryViewController : BaseViewController
+@interface HistoryViewController : BaseViewController<UITableViewDelegate,UITableViewDataSource,UIGestureRecognizerDelegate,
+UINavigationControllerDelegate>
+{
+    UITableView     *_tableView;
+    NSMutableData   *data;
+    UIView          *view;
+    NetworkModel    *netWorkModel;
+    MBProgressHUD   *progress;
+}
+
+@property (nonatomic,copy) NSString                 *archivingFilePath;
+@property (nonatomic,retain) NSMutableDictionary    *dataDic;
+@property (nonatomic,retain) NSMutableArray         *dataArr;
+@property (nonatomic,retain)NSArray                 *data;
 
 @end

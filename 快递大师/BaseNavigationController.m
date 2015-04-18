@@ -28,9 +28,10 @@
 -(void)customNavigationView
 {
     //自定义title
-    UIColor *color = [UIColor whiteColor];
-    NSDictionary *dictColor = [NSDictionary dictionaryWithObject:color forKey:UITextAttributeTextColor];
-    self.navigationBar.titleTextAttributes = dictColor;
+    UIFont* font = [UIFont fontWithName:@"Helvetica-Bold" size:19]; //黑体
+    NSDictionary* textAttributes = @{NSFontAttributeName:font,
+                                     NSForegroundColorAttributeName:[UIColor whiteColor]};
+    [[UINavigationBar appearance]setTitleTextAttributes:textAttributes];
     
     //自定义view颜色
     UIImage *image = [UIImage imageNamed:@"NavBarView"];

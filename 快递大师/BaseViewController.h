@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BaseViewController : UIViewController
+@interface BaseViewController : UIViewController<UIGestureRecognizerDelegate,
+UINavigationControllerDelegate>
+
+@property (nonatomic,assign)BOOL isBackButton;
 
 @end
